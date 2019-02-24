@@ -81,6 +81,6 @@
   {% include '_third-party/scroll-cookie.swig' %}
   {% include '_third-party/exturl.swig' %}
 </body>
-<!-- 点击效果 -->
+<!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/mouse-click.js"></script>
 </html>

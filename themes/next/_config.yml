@@ -3,19 +3,19 @@
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `hexo-site/source/` directory.
-favicon: /images/favicon-32x32.png
+favicon: /images/favicon.png
 
 gitalk:
   # 是否开启Gitalk
   enable: false
-  ClientID: 
-  ClientSecret: 
+  ClientID:
+  ClientSecret:
   # 你要存放的项目名
   repo: blog
   # 这个项目名的拥有者（GitHub账号或组织）
-  owner: 
+  owner: Neoyyy
   # 管理员用户
-  adminUser: 
+  adminUser: Neoyyy
   # 页面ID，不知道就默认的就好了
   ID: location.pathname
   # GitHub issues的标签
@@ -151,6 +151,7 @@ links_title: 推荐阅读
 links_layout: inline
 links:
 
+  
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
