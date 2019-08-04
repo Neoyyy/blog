@@ -91,7 +91,7 @@ public class AppTest {
 ```
 
 运行结果
-![静态代理图1](media/15614682899332/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%9B%BE1.png)
+![静态代理图1](/images/imageForPost/笔记/动态代理/静态代理图1.png)
 
 ------
 
