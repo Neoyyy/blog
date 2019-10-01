@@ -6,7 +6,7 @@ menu:
   Tags: tags  # 标签
   #Repository: repository  # github repositories
  # Books: books  # 豆瓣书单
-  #Links: links  # 友链
+  Links: links  # 友链
   About: about  # 关于
 
 # Enable/Disable menu icons
@@ -33,7 +33,7 @@ site:
     url: ../images/logo.png
   title: Hexo # 页面title
   favicon: /favicon.png
-  board: <p>欢迎交流与分享经验!</p> # 站点公告
+  board: <p>笔记记录，欢迎交流与分享经验!</p> # 站点公告
   copyright: false # 底部版权信息
 
 # config
@@ -96,7 +96,7 @@ donate:
 # Share
 # weibo,qq,qzone,wechat,tencent,douban,diandian,facebook,twitter,google,linkedin
 share:
-  enable: true  # 是否启用分享
+  enable: false  # 是否启用分享
   sites: weibo,qq,wechat,facebook,twitter  # PC端显示的分享图标
   mobile_sites: weibo,qq,qzone  # 移动端显示的分享图标
 
@@ -141,9 +141,9 @@ comment:
 # Api：
   # https://developers.douban.com/wiki/?title=book_v2 图书
   # https://developers.douban.com/wiki/?title=movie_v2 电影
-# books：  
+# books：
   # https://api.douban.com/v2/book/user/:name/collections?start=0&count=100 个人书单列表
-# movies: 
+# movies:
   # https://api.douban.com/v2/movie/in_theaters 正在上映的电影
   # https://api.douban.com/v2/movie/coming_soon 即将上映的电影
   # https://api.douban.com/v2/movie/subject/:id 单个电影信息
@@ -187,7 +187,7 @@ profile:
   avatar: images/avatar.png
   gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
   author: Nobita
-  author_title: JAVA Developer
+  author_title: Java Developer
   author_description: 个人简介。
   location: Hangzhou, China
   follow: https://github.com/Neoyyy
@@ -216,7 +216,7 @@ profile:
   # My Personal Labels
   labels:
     - Vue
-    - JAVA
+    - Java
 
   # My Personal Works
   works:

@@ -1,19 +1,25 @@
 ---
-title: JAVA CAS 
+title: JAVA CAS FFA
 date: 2019-09-26 21:02:16
 comments: false
 categories: 
-- 买的课怎么也得学完
+  - 买的课怎么也得学完
 tags: 
-- java
+  - java
+toc: true
 ---
 
-# CAS 和 FFA 是什么
-CAS和FFA都是硬件同步原语，通过计算机硬件实现的原子操作。  
-CAS全称叫 Compare And Set，参数有个旧值和新值，当通过CAS更改值时会比对原值是否相同，若相同则执行更新操作，不同则放弃该操作，是一个无锁的更新。  
-FFA 全称叫 Fetch And Add，参数有增加的值 inc，即获取当前操作时的原值，并增加inc后返回原值，java中的FFA跟CAS实现相同。  
+CAS和FFA都是硬件同步原语，通过计算机硬件实现的原子操作  
+CAS 全称叫 Compare And Set    
+FFA 全称叫 Fetch And Add  
+
+<!-- more -->  
+
+CAS，参数有个旧值和新值，当通过CAS更改值时会比对原值是否相同，若相同则执行更新操作，不同则放弃该操作，是一个无锁的更新。  
+FFA，参数有增加的值 inc，即获取当前操作时的原值，并增加inc后返回原值，java中的FFA跟CAS实现相同。  
 CAS和FFA操作存在多步，通过编程语言是无法直接实现原子操作的，而原语是由计算机硬件实现的，所以能够有效的实现无锁的并发操作。  
 在JAVA中 CAS和FFA都是通过JNI来实现方法。  
+
 # 使用场景  
 CAS和FFA都是无锁的并发操作，那么接下来通过一个账户服务的场景来实现。  
 ## 实现内容  
