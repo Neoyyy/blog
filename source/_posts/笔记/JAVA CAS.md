@@ -1,7 +1,7 @@
 ---
 title: JAVA CAS FFA
 date: 2019-09-26 21:02:16
-comments: false
+comments: true
 categories: 
   - 买的课怎么也得学完
 tags: 
