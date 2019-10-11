@@ -1,5 +1,5 @@
 ---
-title: 记一次排查生成Mina框架BufferUnderflowException异常
+title: 记一次排查生产Mina框架BufferUnderflowException异常
 date: 2019-10-11 15:10:16
 comments: true
 categories: 
