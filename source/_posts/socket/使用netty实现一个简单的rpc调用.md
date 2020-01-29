@@ -3,7 +3,7 @@ title: 使用Netty实现简单的RPC调用
 date: 2019-10-08 20:10:16
 comments: true
 categories: 
-  - 归纳
+  - 记录
 tags: 
   - java
 toc: true

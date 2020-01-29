@@ -3,7 +3,7 @@ title: Too Many Files异常处理和Ulimit命令
 date: 2020-01-17 22:02:16  
 comments: true  
 categories:   
-- 笔记  
+- 记录  
 tags:   
 - Linux  
 

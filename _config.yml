@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 哦哟
-subtitle: 有输出才能学到
+title: Ohh
+subtitle: 笔记、总结
 description: 要学习要有钱
 keywords:
 author: Nobita
@@ -90,7 +90,7 @@ type: atom
 path: atom.xml
 limit: 20
 ## Themes: https://hexo.io/themes/
-theme: pure
+theme: next
 
 
 # Deployment
