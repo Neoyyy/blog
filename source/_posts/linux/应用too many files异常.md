@@ -9,11 +9,13 @@ tags:
 
 ---
 前天生产环境网关应用报了一个异常，导致网关服务不可用，用户无法登陆。  
-查看了下日志，报了**Too Many Files**异常   
+查看了下日志，报了**Too Many Files**异常    
+这种异常也较为常见，当java应用在打开超过系统允许它打开的最大文件数目时会报这个异常。  
+ 
 <!-- more -->  
 **异常日志：**
 ![](/images/imageForPost/Linux/openTooManyFiles/prod-err.png)  
-这种异常也较为常见，当java应用在打开超过系统允许它打开的最大文件数目时会报这个异常。  
+  
 之前在测试环境中出现过一次，简单粗暴的重启了测试机器就解决了。   
 但是生产环境不能像测试环境一样暴力，于是通过ulimit命令来调整应用可以打开文件的上限来处理。    
 
@@ -40,6 +42,7 @@ tags:
  * soft小于等于hard  
  * root进程可以调整hard值，非root进程只能调整soft值  
  * 进程在开启前可以自主调整soft的值。    
+ ------  
  
 ### 处理方式  
 * **ulimit命令调整**
@@ -65,7 +68,8 @@ nofile就是进程可打开的文件数。
 
 ---------
 通过查看/proc/PID/limits文件可以查看某个已经运行的进程的资源最大值，PID为进程ID。比如现在随机找了个进程查看
-![](/images/imageForPost/Linux/openTooManyFiles/proc-limits.png)
+![](/images/imageForPost/Linux/openTooManyFiles/proc-limits.png)  
+
 ### 复现生产问题
 生产环境是因为socket打开过多导致的，那手动模拟一下多开许多文件也是一样的   
 
