@@ -8,7 +8,7 @@ tags:
 - java
 ---
 
-疯狂加班之后终于有两天是早点下班的了,本篇主要讲述以下内容
+本篇主要讲述以下内容
 
 * 静态代理
 * 动态代理
@@ -16,8 +16,10 @@ tags:
 	* cglib动态代理。
 * Spring AOP中是怎么使用到动态代理的
 * 在spring的Cglib2AopProxy中使用到的transient关键字是做什么的
-<!-- more -->
-## 先来说说java的三种代理模式。
+<!-- more -->  
+
+## 先来说说java的三种代理模式  
+
 
 代理模式proxy是一种设计模式，假设目标对象A有功能functionA()，只负责他对应的业务逻辑，而调用时想在业务逻辑之前或者之后想打印些系统日志，这时候存在一个对A的增强对象proxyA，扩展了A的功能，使得通过代理对象proxyA访问目标对象A，在目标对象A实现功能的基础上扩展了额外的系统日志打印功能，在不修改A的基础上扩展了目标A的功能并且调用目标对象。
 ### 静态代理
@@ -86,14 +88,20 @@ public class AppTest {
 }
 ```
 
-运行结果
+**运行结果**
 ![静态代理图1](/images/imageForPost/笔记/动态代理/静态代理图1.png)
 
 ------
 
-​		可见代理可以在不修改目标对象的情况下扩展对应的功能，但是代理对象和目标对象要实现相同的接口，如果业务中存在大量需要被代理的类则会增加很多不必要的维护工作。
-​		为了解决这一问题，可以看下jdk动态代理。
-​		动态代理不要求代理类与目标类实现相同的接口，但是目标类要求实现接口，通过在运行时创建实现了指定接口的对象来实现目标对象的扩展。
+可见代理可以在不修改目标对象的情况下扩展对应的功能，但是代理对象和目标对象要实现相同的接口，如果业务中存在大量需要被代理的类则会增加很多不必要的维护工作  
+
+​为了解决这一问题，可以看下jdk动态代理  
+
+动态代理不要求代理类与目标类实现相同的接口，但是目标类要求实现接口，通过在运行时创建实现了指定接口的对象来实现目标对象的扩展  
+  
+------  
+ 
+ 
 ### JDK动态代理
 主要使用到**java.lang.reflect**的**Proxy**类的**newProxyInstance**方法 
 
@@ -163,7 +171,7 @@ public class JdkProxy {
 	}
 }
 ```
-执行效果
+**执行效果**
 
 ![jdk代理图1](/images/imageForPost/笔记/动态代理/jdk代理图1.png)
 
@@ -172,7 +180,7 @@ public class JdkProxy {
 
 
 ### cglib的代理
-	与jdk代理不同的是cglib代理是通过运行时通过字节码库生成目标对象的子类，所以不需要像jdk代理一样目标对象需要实现接口，Spring AOP中就是根据目标对象是否实现了接口来确定使用jdk代理还是cglib代理，具体的选择在后面会讲。
+与jdk代理不同的是cglib代理是通过运行时通过字节码库生成目标对象的子类，所以不需要像jdk代理一样目标对象需要实现接口，Spring AOP中就是根据目标对象是否实现了接口来确定使用jdk代理还是cglib代理，具体的选择在后面会讲。
 
 测试工程使用的是**maven**，所以在工程**pom**中添加cglib的依赖
 ```shell
@@ -233,12 +241,16 @@ public class CglibProxyTest {
 }
 ```
 
-运行结果
+**运行结果**
 
 ![cglib代理图1](/images/imageForPost/笔记/动态代理/cglib代理图1.png)
 
 可见cglib和jdk代理在代码结构上非常类似，Spring AOP则是使用这两种方式创建代理，Spring AOP中代理的扩展方法即advice扩展方法是另外指定的，而前面的代理扩展则是写死的，如何使得代理类能使用我们指定的方法呢，像AOP一样可以使用前置通知、后置通知和环绕通知。最简单的方法就是给**ProxyInvocationHandler**的构造方法传入想要用来扩展的方法，然后在目标对象方法的invoke之前调用扩展方法即可。
-接下来简单的看下Spring的AOP
+接下来简单的看下Spring的AOP  
+
+----  
+## Spring中的代理  
+
 手边的工程是用的Spring 3.0.5版本
 在**org.springframework.aop.framework**包下的**DefaultAopProxyFactory**类中有个**public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException** 方法
 
@@ -340,6 +352,8 @@ public Object getProxy(ClassLoader classLoader) {
         }
 }
 ```
+  
+## transient关键字  
 
 在**Cglib2AopProxy**的属性中有一个transient关键字，之前基本没看到过（果然是我见识少啊）
 这也是java的关键字之一
