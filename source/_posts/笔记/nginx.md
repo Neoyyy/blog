@@ -222,13 +222,13 @@ nginx -s reload
 
 1. 实现nginx反向代理2台tomcat服务
 		
-		​ 启动2个tomcat应用，分别监听8080和8081端口，修改webapps/ROOT/index.jsp文件来标识tomcat1和tomcat2
+		​		启动2个tomcat应用，分别监听8080和8081端口，修改webapps/ROOT/index.jsp文件来标识tomcat1和tomcat2
 
 
 
 2. nginx配置
 
-		​ 因为要代理两台tomcat，通过配置两个location来指向不同的toncat，通过url中的/a和/b来匹配到对应的tomcat。
+		​		因为要代理两台tomcat，通过配置两个location来指向不同的toncat，通过url中的/a和/b来匹配到对应的tomcat。
 
 ![proxySetting-2-true](/images/imageForPost/nginx/nginxFirstUse/proxySetting-2-true.png)
 
@@ -242,16 +242,15 @@ nginx -s reload
 
 此时请求nginx所在机器的IP:端口/b会请求到监听在8081的tomcat2
 
-![secondTomcatPage](/images/imageForPost/nginx/nginxFirstUse/secondTomcatPage.png)  
+![secondTomcatPage](/images/imageForPost/nginx/nginxFirstUse/secondTomcatPage.png)
 
-
----
 
 
 ### nginx负载
 
 在前面反向代理两台tomcat的基础上修改成nginx的负载均衡设置   
 
+---
 
 **nginx设置**
 
@@ -265,7 +264,7 @@ nginx -s reload
 
 1. 轮询 
 
-默认策略，根据请求到来的先后在服务器中轮询
+		默认策略，根据请求到来的先后在服务器中轮询
 
 ```shell
 upstream lagouServer{ 
@@ -276,7 +275,7 @@ upstream lagouServer{
 
 2. 权重
 
-weight代表负载的权重，默认每一个机器的权重为1，根据设置的权重，权重越高被分配到处理请求的几率越高
+		weight代表负载的权重，默认每一个机器的权重为1，根据设置的权重，权重越高被分配到处理请求的几率越高
 
 ```shell
 upstream lagouServer{ 
@@ -284,10 +283,8 @@ upstream lagouServer{
   server 127.0.0.1:8081 weight=2; 
 }
 ```
-3. ip_hash    
-
-请求根据ip的hash结果来进行分配，所以每个客户端都有固定的服务器进行处理，可用于session未做分布式共享的场景    
-
+3. ip_hash  
+		请求根据ip的hash结果来进行分配，所以每个客户端都有固定的服务器进行处理，可用于session未做分布式共享的场景  
 ```shell
 upstream lagouServer{ 
 	ip_hash;
