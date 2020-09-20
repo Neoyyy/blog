@@ -83,7 +83,7 @@ js的节流、反抖函数和通过Vue自定义指令实现节流、反抖
   
   通过Vue的directive方法定义自定义指令后在组件上实现点击事件的反抖和节流 ，通过binding对象获得目标函数即eventCb和等待时间，通过监听click时间来操作目标函数的执行与否
   
-  Vue自定义指令的实现可以参考官方文档  
+  Vue自定义指令的实现可以参考[官方文档](https://cn.vuejs.org/v2/guide/custom-directive.html)
   
   * 反抖  
   
