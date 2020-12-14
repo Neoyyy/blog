@@ -5,7 +5,7 @@
 # Site
 title: Ohh
 subtitle: 笔记、总结
-description: 要学习要有钱
+description: 做一个能持续输出的人
 keywords:
 author: Nobita
 language: zh-CN
@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as  '/child/'
-url: http://blog.neoy.site
+url: http://docs.neoy.site/blog
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
